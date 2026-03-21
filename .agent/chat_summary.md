@@ -1,43 +1,24 @@
 # Chat Summary - Dự án Harmony TuVi
 
 ## 1. Yêu cầu ban đầu (Initial User Request)
-- Tạo một web app về mảng **Phong thủy – Tử vi – Xem ngày**.
-- Các chức năng chính cần có: Luận mệnh theo tuổi, tử vi theo ngày, phong thủy ứng dụng đời sống, xem ngày tốt xấu, hướng nhà, tử vi cá nhân, xem tuổi kết hôn/đối tác (tích hợp Bát tự/Hành khắc) và Cân xương đoán số.
-- Đề bài bao gồm: Nghiên cứu kỹ thị trường, phân tích đối thủ, tổng hợp UI/UX best practices, đề xuất các tính năng và sau đó viết **Product Requirements Document (PRD)**.
+- Tạo một web app về mảng **Phong thủy – Tử vi – Xem ngày** với các chức năng: Cân xương, Bát trạch, Lịch vạn niên, Tử vi cá nhân. Tone màu thiền định (Zen), UI/UX hiện đại.
 
-## 2. Các giai đoạn phát triển (Development Phases)
+## 2. Quá trình triển khai
 
-**Giai đoạn 1: Lên ý tưởng, PRD & Prototype ban đầu (Vite + React)**
-- Thực hiện search web để nghiên cứu thị trường (các app như AItuvi, Tuvi.vn, Lịch Ngày Tốt...) và các best practices về UI/UX (ưu tiên tone màu Zen, Minimalist, hiệu ứng glassmorphism).
-- Cập nhật file PRD chi tiết, lập Implementation Plan.
-- Setup dự án ban đầu bằng **Vite, React và TailwindCSS**.
-- Code các thuật toán cơ bản: bảng tính Can Chi, Cân Xương "Lượng Chỉ" (trong `src/lib/lunar-logic.js`).
-- Xây dựng giao diện tĩnh cho: Trang chủ (Home), Lịch vạn niên (Calendar) và Tính năng Cân xương (CanXuong).
+**Giai đoạn 1 & 2: MVP & Next.js Migration**
+- Thiết lập dự án tĩnh ban đầu bằng Vite, sau đó migrate sang Next.js (App Router) + TypeScript để tối ưu SEO.
+- Tạo khung sườn UI bằng TailwindCSS với 4 trang chính: Trang chủ, Lịch, Cân Xương và Hướng nhà.
 
-**Giai đoạn 2: Tối ưu hoá SEO và An toàn dữ liệu (Next.js + TypeScript)**
-- Để tối ưu hóa việc tìm kiếm của Google (SEO), người dùng yêu cầu chuyển đổi codebase sang **Next.js (App Router)** và đổi cú pháp sang ngôn ngữ **TypeScript**.
-- Cập nhật lại PRD, thiết lập lại toàn bộ cấu trúc thư mục (chuyển các trang vào `src/app/...`), đổi file logic thành `.ts` và các file giao diện thành `.tsx`.
-- Thêm Next.js Metadata API cho từng trang để cải thiện Web Vitals và SEO điểm chuẩn.
-- Sửa lỗi scripts trong `package.json` (từ `vite` sang `next dev`) và khởi động lại Server thành công.
-
-**Giai đoạn 3: Kiểm thử tự động (Automated Testing) & Tính năng Bát Trạch**
-- Sử dụng **Browser SubAgent** để chạy kiểm thử tự động toàn bộ flow người dùng: vào trang chủ, điều hướng sang lịch, và nhập dữ liệu vào chức năng Cân Xương.
-- Fix lỗi Next.js Hydration (NaN check) để app chạy ổn định trên môi trường Product.
-- **Tiếp tục hoàn thiện UI/UX**: Xây dựng tính năng cuối cùng của Phase 2 là **Bát Trạch** (Xem hướng nhà hợp tuổi dựa theo năm sinh và giới tính để luận ra Cung Phi - Mệnh Quái, các hướng Sinh Khí - Thiên Y - Diên Niên - Phục Vị).
-
-**Giai đoạn 3: Tính năng Cấp Cao & Trải nghiệm UX Cao Cấp (Premium Experience)**
-- Phân tích và đề xuất Phase 3 nhằm đưa ứng dụng lên mức độ hoàn thiện cao hơn.
-- Áp dụng LocalStorage và `UserContext` để lưu thông tin cá nhân (Tên, Năm Sinh, Giới Tính), giúp cá nhân hóa lời chào ở Trang Chủ và tự động điền dữ liệu vào Cân Xương / Bát Trạch.
-- Cải thiện thuật toán Âm Lịch (chuẩn bị khung xử lý chính xác hơn) và tăng độ chi tiết văn bản luận giải trong Cân Xương Đoán Số.
-- Triển khai **La bàn Bát Trạch tương tác**: La bàn ảo có khả năng quay tương ứng với Cung Phi tính toán được nhờ sự hỗ trợ của `framer-motion`.
-- Cập nhật toàn bộ Design System để hỗ trợ hoàn toàn **Dark Mode** tự động dựa theo theme của thiết bị.
-- Tiến hành chạy Browser SubAgent để kiểm thử, phát hiện lỗi reference `motion` chưa import và đã xử lý thành công, xác nhận ứng dụng chạy mượt mà không còn bugs.
+**Giai đoạn 3: "Premium Zen Experience" (Hoàn thiện trải nghiệm cao cấp)**
+- **Astrology Logic**: Nâng cấp toàn bộ thuật toán chuyển đổi Âm Dương lịch dựa trên thuật toán chuẩn của chuyên gia Hồ Ngọc Đức. Áp dụng bảng trọng số chuẩn và logic chi tiết cho Cân Xương Đoán Số và Cung Phi Bát Trạch.
+- **Tử Vi Hàng Ngày (Daily Luck)**: Tích hợp bảng Dashboard cá nhân hóa ngay tại trang chủ, dựa vào UserContext (Lưu trong LocalStorage) để tính toán hướng xuất hành, con số may mắn, màu sắc hợp mệnh mỗi ngày.
+- **UI/UX Polish**: 
+  - Hoàn thiện La bàn Bát Trạch điện tử xoay theo đúng Cung Phi của người dùng, làm rõ hướng Đại Cát / Kỵ.
+  - Lịch vạn niên có khả năng tương tác, đánh dấu và lọc trực quan ngày Hoàng Đạo/Hắc Đạo.
+  - Form kết quả Cân Xương đẹp mắt (sử dụng Badge phân cấp độ màu sắc tinh tế).
+  - Tối ưu hóa Global CSS cho một chế độ Dark Mode (Mystical Modern) sâu thẳm.
+- **Kiểm định**: Agent tự động chạy trình duyệt nội bộ xác nhận mọi form nhập liệu, trang chủ, và các luồng tương tác đều mượt mà hoàn hảo.
 
 ## 3. Kết quả hiện tại (Current Status)
-Dự án **Harmony TuVi** hiện được đóng gói hoàn chỉnh bằng Next.js (TypeScript) với 4 module chức năng chính, hỗ trợ Personalization & Dark Mode:
-- `/`: Trang chủ tổng quan các tính năng với thiết kế Zen thẩm mỹ, có Modal xác thực lấy Tên người dùng.
-- `/calendar`: Lịch vạn niên chỉ ra ngày Hoàng Đạo/Hắc Đạo.
-- `/can-xuong`: Công cụ tính toán Cân Xương Đoán Số (có hiệu ứng kết quả và luận giải dài).
-- `/bat-trach`: La bàn Bát Trạch trực quan xem phong thủy chọn hướng nhà, hướng bếp.
-
-Tất cả các tài liệu dự án (PRD, kế hoạch tiến độ, hướng dẫn code) đã được sao chép và tổng hợp vào thư mục `.agent/` này để dùng cho các cập nhật AI/Agent về sau.
+Dự án **Harmony TuVi** hiện được đóng gói hoàn chỉnh bằng Next.js (TypeScript) với 4 module chức năng rất chi tiết, UX cực kỳ mượt mà. Khả năng cá nhân hóa (Personalization) giúp người dùng giữ lại thông tin và xem Tử Vi thông điệp mỗi ngày.
+Tất cả các tài liệu dự án (PRD, kế hoạch tiến độ, hướng dẫn, v.v.) trong thư mục `.agent/` vừa được Agent cập nhật tự động để phản ánh sự hoàn tất của Phase 3 và chuẩn bị sẵn sàng cho các cập nhật tiếp theo (Phase 4).

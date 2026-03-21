@@ -1,29 +1,21 @@
-# Implementation Plan - Phase 3: Advanced Features & UX Polish
+# Implementation Plan - Phase 4: Bát Tự & Khả Năng Mở Rộng
 
-This phase focuses on turning Harmony TuVi from a basic utility into a premium, interactive astrology experience. Key goals include accurate lunar calculations, personalized data, and deep cultural insights.
+Phase 3 đã hoàn thành xuất sắc việc xây dựng nền tảng vững chắc cho logic tử vi (áp dụng lịch Hồ Ngọc Đức chuẩn Việt Nam), cũng như hoàn thiện trải nghiệm UX/UI (Dark Mode, Framer Motion, Dashboard Hàng Ngày). 
+
+Bước tiếp theo (Phase 4) sẽ tập trung vào các tính năng học thuật sâu hơn.
 
 ## Proposed Changes
 
-### 1. Advanced Astrology Engine (Logic)
-- [ ] **Accurate Lunar Conversion**: Replace the placeholder `solarToLunar` with a robust algorithm (handling leap months and offsets) in `src/lib/lunar-logic.ts`.
-- [ ] **Fate Weight Interpretations**: Add detailed textual readings for each "Lượng Chỉ" outcome in `CanXuong.tsx`.
-- [ ] **Daily Luck (Tử Vi Hàng Ngày)**: Logic to calculate basic daily fortunes based on user's birth year.
+### 1. Module Bát Tự Tứ Trụ
+- [ ] Xây dựng thuật toán an lá số Bát Tự (Can Chi của Năm, Tháng, Ngày, Giờ).
+- [ ] Biểu đồ Radar đánh giá trạng thái Ngũ Hành (Kim, Mộc, Thủy, Hỏa, Thổ) - Khuyết / Vượng.
+- [ ] Phân tích tổng quan vòng trường sinh và Thập Thần.
 
-### 2. Personalization (Persistence)
-- [ ] **LocalStorage Integration**: Save user's birth details so they persist across reloads and different modules (Calendar, Can Xuong, Bat Trach).
-- [ ] **Dynamic Dashboard**: Home page updates with "Today's Message" for the specific user.
+### 2. Xem Tuổi Tương Hợp Đôi Lứa
+- [ ] Form nhập liệu kép cho 2 người (Nam/Nữ).
+- [ ] Logic đối chiếu Thiên Can, Địa Chi (Tam hợp, Lục hợp, Tứ hành xung) và Cung Phi bát trạch.
+- [ ] Tính toán điểm tương hợp (%) và đưa ra lời khuyên.
 
-### 3. Zen UX Polish
-- [ ] **Animated Transitions**: Implement global page transition effects using `framer-motion`.
-- [ ] **Enhanced Bát Trạch UI**: A more visual, interactive compass design.
-- [ ] **Dark Mode Styling**: Optimized Zen aesthetic for dark environments.
-
-## Verification Plan
-
-### Automated Tests
-- [ ] Test lunar date conversion for 2026-2030 using Browser SubAgent.
-- [ ] Verify `localStorage` persistence of user data across navigation items.
-
-### Manual Verification
-- [ ] Visual audit of Zen animations and accessibility checks.
-- [ ] Review of astrological content and Vietnamese localizations.
+### 3. Tối ưu Hệ Thống & Performance
+- [ ] Tách nhỏ `lunar-logic.ts` thành cấu trúc folder modular (nếu tệp trở nên quá lớn).
+- [ ] Đóng gói Web App dưới dạng PWA (Progressive Web App) để cài đặt offline trên thiết bị di động.

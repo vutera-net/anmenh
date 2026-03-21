@@ -22,71 +22,53 @@
 
 **A. Tử vi cá nhân & Bát tự (Tứ trụ)**
 - Form nhập liệu mượt mà: Tên, Giới tính, Giờ, Ngày, Tháng, Năm sinh (Dương lịch/Âm lịch).
-- Đổi ngày Dương lịch sang Âm lịch tự động.
 - Sinh lá số Bát Tự (Thiên Can, Địa Chi cho 4 trụ).
 - Biểu đồ phân tích rập khuôn Ngũ Hành (Kim, Mộc, Thủy, Hỏa, Thổ đang Khuyết hay Vượng).
 - Luận giải cơ bản về tính cách và vận mệnh.
 
 **B. Cân xương đoán số**
 - Tính toán "Lượng Chỉ" tự động dựa trên ngày giờ sinh.
-- Hiển thị kết quả bằng giao diện trực quan (hình ảnh cán cân, hoặc animation đồng tiền).
+- Hiển thị kết quả bằng giao diện trực quan (theo cấp độ số mệnh).
 - Đoạn văn bình giải tổng quan về mức độ thuận lợi, tài lộc trong cuộc đời theo kết quả Lượng Chỉ.
 
 **C. Xem ngày tốt xấu & Lịch Vạn Niên**
-- Giao diện lịch tháng (Calendar view) kết hợp ngày Âm/Dương.
-- Đánh dấu các ngày Hoàng Đạo/Hắc Đạo bằng icon màu sắc rực rỡ.
-- Xem chi tiết ngày: Giờ đẹp, Hướng xuất hành tốt, Tuổi xung khắc.
-- **Tính năng lọc:** Tìm ngày tốt theo mục đích (vd: chỉ lọc ngày tốt để Khai trương, Cưới hỏi, Động thổ trong tháng).
+- Lịch theo thuật toán chuẩn hóa.
+- Giao diện lịch biểu, lọc các ngày Hoàng Đạo/Hắc Đạo.
+- Xem chi tiết ngày: Giờ đẹp, Can Chi năm tháng ngày.
 
-**D. Phong thủy ứng dụng & Hướng nhà**
-- Dựa vào năm sinh và giới tính, tính cung phi (Bát Trạch).
-- La bàn phong thủy điện tử (ảo) minh họa các hướng: Sinh Khí, Thiên Y, Diên Niên, Phục Vị (Tốt) & Tuyệt Mệnh, Ngũ Quỷ, Lục Sát, Họa Hại (Xấu).
-- Ứng dụng thực tế: Gợi ý hướng kê giường ngủ, hướng bàn làm việc.
+**D. Phong thủy ứng dụng & Hướng nhà (Bát Trạch)**
+- Định vị Cung Phi mệnh quái theo Đông/Tây tứ mệnh.
+- La bàn phong thủy tương tác minh họa các hướng tốt / xấu.
+- Ứng dụng lời khuyên kê giường ngủ, hướng làm việc.
 
 ### 3.2. Tính năng tương tác (Engagement Features)
 
-**E. Xem tuổi kết hôn / Đối tác**
-- Nhập thông tin của 2 đối tượng.
-- Hệ thống phân tích đối chiếu Thiên can, Địa chi, Ngũ hành nạp âm.
-- Đưa ra "Điểm tương hợp" (%) và lời khuyên.
+**E. Bản tin Tử Vi Hàng Ngày (Daily Luck)**
+- Bảng tin dashboard cá nhân hóa khi người dùng khai báo hồ sơ.
+- Chỉ số Năng lượng, thông điệp trong ngày, con số may mắn, hướng xuất hành tốt.
 
-**F. Tử vi hàng ngày (Daily Horoscope) - Mở rộng**
-- Lời khuyên ngắn hạn và thông điệp may mắn ngẫu nhiên (lucky numbers, màu sắc may mắn trong ngày).
+**F. Xem tuổi kết hôn / Đối tác**
+- Phân tích đối chiếu Mệnh, Can Chi của hai người.
 
 ## 4. Yêu cầu Giao diện & Trải nghiệm Người dùng (UI/UX)
 - **Aesthetics (Thẩm mỹ):** 
   - Phong cách "Mystical Modern" (Giao diện tối - Dark mode với các ánh sáng Neon gradient biểu tượng vũ trụ/chiêm tinh).
   - HOẶC "Zen Minimal" (Giao diện sáng - Background beige/off-white, Typography thanh lịch kết hợp font serif cho tiêu đề).
-- **Typography:** Sử dụng font chữ hiện đại, sang trọng như *Inter, Playfair Display* hoặc *Cormorant Garamond* để tạo điểm nhấn truyền thống nhưng vẫn cao cấp.
-- **Animations:** Micro-animations khi hover, chuyển trang mượt mà bằng Framer Motion. Animation load dữ liệu hình Bát Quái hoặc Vòng xoay Ngũ Hành.
-- **Mobile First:** Thiết kế dành cho màn hình cảm ứng, bottom sheet navigation, các nút lớn dễ chạm.
+- **Typography:** *Inter* kết hợp *Playfair Display* để tạo điểm nhấn truyền thống nhưng vẫn cao cấp.
+- **Animations:** Micro-animations với Framer Motion. Hiệu ứng la bàn xoay mượt mà.
 
 ## 5. Yêu cầu Kỹ thuật (Technical Specifications)
-- **Frontend Framework:** Next.js (App Router) - Bắt buộc để tối ưu SEO và Core Web Vitals.
-- **Language:** TypeScript - Đảm bảo tính chặt chẽ của mã nguồn và dễ bảo trì.
-- **Tối ưu SEO:** Sử dụng Metadata API của Next.js, Server Component để render nội dung tử vi giúp Google Index tốt nhất.
+- **Frontend Framework:** Next.js (App Router)
+- **Language:** TypeScript
 - **Styling:** TailwindCSS.
-- **Deployment:** Vercel hoặc các nền tảng hỗ trợ Next.js SSR.
-- **Database Architecture (MVP):** Hoạt động hoàn toàn Client-side (Local Storage) để người dùng không cần đăng nhập vẫn lưu được profile. Đối với bản v2, có thể dùng Supabase/Firebase.
+- **Data Persistence:** Local Storage (User Profile, Custom preferences).
 
 ## 6. Lộ trình phát triển (Phased Implementation)
-- **Giai đoạn 1 (Foundation):** 
-  - Setup core Layout & UI design system (Vite + React / Tailwind).
-  - Tính năng Lịch Vạn Niên (Xem ngày tốt xấu).
-  - Tính năng Cân Xương Đoán Số.
-- **Giai đoạn 2 (SEO & Migration):**
-  - Chuyển đổi mã nguồn sang Next.js (App Router) và TypeScript.
-  - Fix duplicate files, tối ưu Server-side Rendering và meta data.
-  - Xây dựng Tính năng xác định Hướng nhà cơ bản (Bát Trạch).
-- **Giai đoạn 3 (Premium UX & Personalization) - HIỆN TẠI ĐÃ HOÀN THÀNH:**
-  - Cá nhân hóa người dùng: Sử dụng LocalStorage (User Context) để lưu trữ tên, ngày sinh, đồng bộ qua các luồng (Lịch, Cân Xương, Bát Trạch).
-  - Nâng cấp UI/UX: Áp dụng hiệu ứng mượt mà (Framer Motion) và La bàn xoay trực quan.
-  - Hỗ trợ hoàn toàn Dark Mode theo ngôn ngữ thiết kế Zen.
-  - Cập nhật luận giải chi tiết cho Cân Xương Đoán Số.
-- **Giai đoạn 4 (Tiếp theo):**
-  - Xây dựng module Bát Tự phức tạp và biểu đồ phân tích Ngũ Hành.
+- **Giai đoạn 1 & 2 (Foundation & SEO):** [HOÀN THÀNH] Setup dự án Next.js, tạo 4 view chính, chạy ổn định, kiểm thử tự động.
+- **Giai đoạn 3 (Premium UX & Astrological Accuracy):** [HOÀN THÀNH]
+  - Thuật toán chuyển đổi lịch chuẩn hóa (Hồ Ngọc Đức logic).
+  - Cá nhân hóa người dùng: "Tử vi hàng ngày" (Daily Luck dashboard) tại Trang chủ.
+  - UI/UX Polish: Nâng cấp La Bàn Bát Trạch sinh động quay chính xác theo độ, Modal Cân Xương hiện chi tiết giải nghĩa, Lịch có bộ lọc mạnh.
+- **Giai đoạn 4 (Phân tích nâng cao):** [TIẾP THEO]
+  - Xây dựng module Bát Tự phức tạp và biểu đồ Radar Ngũ Hành.
   - Tính năng Xem tuổi tương hợp đôi lứa.
-  - Tích hợp nội dung tử vi hàng ngày.
-
----
-*Dự án hiện tại đã đạt độ ổn định và trải nghiệm người dùng cao, hoàn thành Phase 3 và sẵn sàng triển khai thực tế.*
