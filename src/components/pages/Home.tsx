@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import {
   ArrowRight, Sparkles, Moon, Sun, Scale, Compass,
   UserCircle2, Edit3, Star, Wind, Droplets, Flame,
-  TreePine, CircleDot,
+  TreePine, CircleDot, Heart
 } from "lucide-react";
 import Link from "next/link";
 import { useUser } from "@/context/UserContext";
@@ -235,12 +235,18 @@ export default function Home() {
           color="from-green-50 to-emerald-50 dark:from-stone-800 dark:to-stone-800"
         />
         <FeatureCard
-          href="/"
-          icon={<Sun className="text-amber-600" />}
-          title="Tử Vi Hàng Ngày"
-          desc="Thông điệp tâm linh và năng lượng tích cực mỗi sáng."
+          href="/bat-tu"
+          icon={<Sparkles className="text-amber-600" />}
+          title="Bát Tự Tứ Trụ"
+          desc="Phân tích vượng khuyết bản mệnh qua lá số Tử Bình."
           color="from-rose-50 to-pink-50 dark:from-stone-800 dark:to-stone-800"
-          badge="Sắp ra mắt"
+        />
+        <FeatureCard
+          href="/tuong-hop"
+          icon={<Heart className="text-amber-600" />}
+          title="Xem Hợp Tuổi"
+          desc="Kết hợp Can Chi, Cung phi để luận đoán nhân duyên."
+          color="from-purple-50 to-fuchsia-50 dark:from-stone-800 dark:to-stone-800"
         />
       </section>
 
@@ -254,7 +260,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-5 gap-3">
           {[
-            { name: "Kim", icon: <CircleDot size={24} />, color: "bg-yellow-50 border-yellow-200 text-yellow-700 dark:bg-yellow-950/20 dark:border-yellow-800 dark:text-yellow-400" },
+            { name: "Kim", icon: <CircleDot size={24} />, color: "bg-stone-50 border-stone-200 text-stone-700 dark:bg-stone-800 dark:border-stone-700 dark:text-stone-200" },
             { name: "Mộc", icon: <TreePine size={24} />, color: "bg-green-50 border-green-200 text-green-700 dark:bg-green-950/20 dark:border-green-800 dark:text-green-400" },
             { name: "Thủy", icon: <Droplets size={24} />, color: "bg-blue-50 border-blue-200 text-blue-700 dark:bg-blue-950/20 dark:border-blue-800 dark:text-blue-400" },
             { name: "Hỏa", icon: <Flame size={24} />, color: "bg-red-50 border-red-200 text-red-700 dark:bg-red-950/20 dark:border-red-800 dark:text-red-400" },

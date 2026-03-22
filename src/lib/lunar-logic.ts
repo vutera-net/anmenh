@@ -1,5 +1,5 @@
 /**
- * Harmony TuVi - Core Astrology Logic
+ * An Mệnh - Core Astrology Logic
  * Implements the Hồ Ngọc Đức Solar-to-Lunar algorithm for Vietnamese dates.
  * https://www.informatik.uni-leipzig.de/~duc/amlich/calrules.html
  */
@@ -25,7 +25,7 @@ export function getYearChi(year: number): string { return CHI[(year + 8) % 12]; 
 // ==========================================
 function INT(d: number) { return Math.floor(d); }
 
-function jdFromDate(dd: number, mm: number, yy: number): number {
+export function jdFromDate(dd: number, mm: number, yy: number): number {
   const a = INT((14 - mm) / 12);
   const y = yy + 4800 - a;
   const m = mm + 12 * a - 3;
@@ -442,21 +442,17 @@ const CUNG_DATA: Record<CungPhi, Omit<BatTrachResult, "cung">> = {
 };
 
 export function calculateBatTrach(year: number, gender: "male" | "female"): BatTrachResult {
-  // Calculate sum of year digits, then reduce to single digit
-  let n = year;
-  while (n > 9) {
-    const digits = n.toString().split("").map(Number);
-    n = digits.reduce((a, b) => a + b, 0);
-  }
+  let s = year % 9;
+  if (s === 0) s = 9;
 
   let cungIndex: number;
   if (gender === "male") {
-    // Nam: (10 - n) % 9, map 0 → 9
-    cungIndex = (10 - n) % 9;
+    cungIndex = 11 - s;
+    if (cungIndex > 9) cungIndex -= 9;
     if (cungIndex === 0) cungIndex = 9;
   } else {
-    // Nữ: (n + 5) % 9, map 0 → 9
-    cungIndex = (n + 5) % 9;
+    cungIndex = 4 + s;
+    if (cungIndex > 9) cungIndex -= 9;
     if (cungIndex === 0) cungIndex = 9;
   }
 
@@ -466,8 +462,8 @@ export function calculateBatTrach(year: number, gender: "male" | "female"): BatT
     5: "Khôn", 6: "Càn", 7: "Đoài", 8: "Cấn", 9: "Ly",
   };
   const femaleMap: Record<number, CungPhi> = {
-    1: "Cấn", 2: "Càn", 3: "Đoài", 4: "Cấn",
-    5: "Tốn", 6: "Ly", 7: "Khảm", 8: "Khôn", 9: "Chấn",
+    1: "Khảm", 2: "Khôn", 3: "Chấn", 4: "Tốn",
+    5: "Cấn", 6: "Càn", 7: "Đoài", 8: "Cấn", 9: "Ly",
   };
 
   const map = gender === "male" ? maleMap : femaleMap;
