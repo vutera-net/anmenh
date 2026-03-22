@@ -260,7 +260,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-5 gap-3">
           {[
-            { name: "Kim", icon: <CircleDot size={24} />, color: "bg-yellow-50 border-yellow-200 text-yellow-700 dark:bg-yellow-950/20 dark:border-yellow-800 dark:text-yellow-400" },
+            { name: "Kim", icon: <CircleDot size={24} />, color: "bg-stone-50 border-stone-200 text-stone-700 dark:bg-stone-800 dark:border-stone-700 dark:text-stone-200" },
             { name: "Mộc", icon: <TreePine size={24} />, color: "bg-green-50 border-green-200 text-green-700 dark:bg-green-950/20 dark:border-green-800 dark:text-green-400" },
             { name: "Thủy", icon: <Droplets size={24} />, color: "bg-blue-50 border-blue-200 text-blue-700 dark:bg-blue-950/20 dark:border-blue-800 dark:text-blue-400" },
             { name: "Hỏa", icon: <Flame size={24} />, color: "bg-red-50 border-red-200 text-red-700 dark:bg-red-950/20 dark:border-red-800 dark:text-red-400" },
